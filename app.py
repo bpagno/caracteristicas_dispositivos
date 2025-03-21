@@ -20,7 +20,7 @@ app.layout = html.Div(
         html.Div(
             style={
                 "width": "20%",
-                "background-color": "#4CAF50",
+                "background-color": "#00a335",
                 "padding": "20px",
                 "color": "white",
                 "height": "100vh",
@@ -28,6 +28,22 @@ app.layout = html.Div(
             },
             children=[
                 html.H2("Filtros de Características", style={"text-align": "center"}),
+                # Botão para limpar filtros
+                html.Button(
+                    "Limpar filtro",
+                    id="limpar-filtros",
+                    style={
+                        "margin-top": "1px",
+                        "background-color": "#EAB42A",
+                        "color": "white",
+                        "border": "none",
+                        "padding": "10px",
+                        "width": "100%",
+                        "border-radius": "5px",
+                        "cursor": "pointer",
+                        "margin-bottom": "10px",
+                    },
+                ),
                 html.Div(
                     children=[
                         html.Div(
@@ -84,21 +100,7 @@ app.layout = html.Div(
                         for coluna in df.columns[1:]
                     ]
                 ),
-                # Botão para limpar filtros
-                html.Button(
-                    "Limpar",
-                    id="limpar-filtros",
-                    style={
-                        "margin-top": "20px",
-                        "background-color": "#ff4d4d",
-                        "color": "white",
-                        "border": "none",
-                        "padding": "10px",
-                        "width": "100%",
-                        "border-radius": "5px",
-                        "cursor": "pointer",
-                    },
-                ),
+
             ],
         ),
         # Conteúdo principal
@@ -109,10 +111,10 @@ app.layout = html.Div(
                 "background-color": "#fff",
             },
             children=[
-                html.H1("Escolha Sua Fechadura Digital", style={"color": "#4CAF50"}),
+                html.H1("Escolha Sua Fechadura Digital", style={"color": "#00a335"}),
                 html.P(
                     "Selecione os filtros no menu lateral para encontrar a fechadura ideal.",
-                    style={"font-size": "16px", "color": "#555"},
+                    style={"font-size": "16px", "color": "#3e5055"},
                 ),
                 html.Div(
                     id="tabela-resultados",
@@ -168,9 +170,9 @@ def atualizar_tabela(*filtros):
                         html.Th(
                             col,
                             style={
-                                "border": "1px solid #4CAF50",
+                                "border": "1px solid #00a335",
                                 "padding": "10px",
-                                "background-color": "#4CAF50",
+                                "background-color": "#00a335",
                                 "color": "white",
                                 "text-align": "center",
                             },
@@ -186,7 +188,7 @@ def atualizar_tabela(*filtros):
                             html.Td(
                                 str(df_filtrado.iloc[i][col]),
                                 style={
-                                    "border": "1px solid #4CAF50",
+                                    "border": "1px solid #00a335",
                                     "padding": "10px",
                                     "text-align": "center",
                                     "word-wrap": "break-word",
